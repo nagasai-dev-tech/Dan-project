@@ -1,0 +1,106 @@
+/* ==== Detect Dark Mode and Light Mode ==== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(to bottom right, #1e1e2f, #2e2e3f);
+        color: #f5f5f5;
+    }
+
+    h1, h2, h3 {
+        color: #5fa8d3;
+    }
+
+    .stButton > button {
+        background-color: #5fa8d3;
+        color: #fff;
+        border: none;
+        box-shadow: 0 0 10px #5fa8d3;
+    }
+
+    .stButton > button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #8fd1ff;
+    }
+
+    thead tr th {
+        background-color: #333 !important;
+        color: #fff !important;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #2a2a3d;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff);
+        color: #1a1a1a;
+    }
+
+    h1, h2, h3 {
+        color: #004b8d;
+    }
+
+    .stButton > button {
+        background-color: #007acc;
+        color: white;
+        border-radius: 12px;
+        padding: 0.6em 1.2em;
+        border: none;
+        transition: 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 122, 204, 0.3);
+    }
+
+    .stButton > button:hover {
+        background-color: #005999;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 122, 204, 0.4);
+    }
+
+    thead tr th {
+        background-color: #007acc !important;
+        color: white !important;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f9ff;
+    }
+}
+
+/* ==== Metric Cards ==== */
+div[data-testid="stMetric"] {
+    padding: 1em;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+div[data-testid="stMetric"]:hover {
+    transform: scale(1.03);
+    background-color: #eaf6ff;
+}
+
+/* ==== Tooltips / Info ==== */
+.stAlert {
+    background-color: #fff8e6;
+    border-left: 6px solid #ffcc00;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* ==== Animations ==== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}

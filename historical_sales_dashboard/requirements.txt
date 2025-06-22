@@ -1,0 +1,10 @@
+streamlit
+pandas
+openpyxl
+matplotlib
+seaborn
+streamlit-lottie
+requests
+pillow
+xlsxwriter
+prophet
