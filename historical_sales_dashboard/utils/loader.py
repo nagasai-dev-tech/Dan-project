@@ -11,9 +11,9 @@ def load_historical_report():
 
 # 2. For Weekly Trends, Benchmark, and Customer Analysis
 def load_branch_data():
-    wa_path = os.path.join(DATA_DIR, "WA.csv")
-    nsw_path = os.path.join(DATA_DIR, "NSW.csv")
-    qld_path = os.path.join(DATA_DIR, "QLD.csv")
+    wa_path = os.path.join(DATA_DIR, "WA.CSV")
+    nsw_path = os.path.join(DATA_DIR, "NSW.CSV")
+    qld_path = os.path.join(DATA_DIR, "QLD.CSV")
 
     wa_df = pd.read_csv(wa_path)
     nsw_df = pd.read_csv(nsw_path)
