@@ -11,7 +11,7 @@ st.set_page_config(page_title="Magic Dashboard", layout="wide")
 st.markdown("""
 <style>
 /* GLOBAL PAGE BACKGROUND */
-body {
+[data-testid="stAppViewContainer"] {
     background-color: #f3f4f6;
 }
 
@@ -110,7 +110,6 @@ button[kind="primary"] {
 </style>
 """, unsafe_allow_html=True)
 
-
 # === Navigation Buttons ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.markdown("### 🔀 Navigate Between Pages")
@@ -198,25 +197,21 @@ if cost:
     st.success(f"📊 Estimated ROI: {roi:.2f}%")
 st.markdown('</div>', unsafe_allow_html=True)
 
-
 # === Live Conversion Simulator ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("🔄 Conversion Impact Simulator")
 traffic = st.slider("Visitors", 1000, 100000, 25000, step=1000)
 conversion_rate = st.slider("Conversion Rate (%)", 1.0, 10.0, 3.5)
 avg_order_value = st.slider("Avg. Order Value (₹)", 100, 5000, 750)
-
 est_revenue = int((traffic * (conversion_rate / 100)) * avg_order_value)
 st.metric("🧾 Estimated Revenue", f"₹{est_revenue:,}")
 st.markdown('</div>', unsafe_allow_html=True)
-
 
 # === Achievement Unlocking ===
 roi = ((rev - cost) / cost) * 100 if cost else 0
 if roi > 40:
     st.balloons()
     st.success("🎉 Achievement Unlocked: High-ROI Campaign!")
-
 
 # === Ask-a-Bot ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
@@ -230,8 +225,6 @@ if q:
     else:
         st.warning("🤔 I'm still learning. Try asking about 'sales' or 'growth'")
 st.markdown('</div>', unsafe_allow_html=True)
-
-
 
 # === Countdown ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
@@ -261,8 +254,6 @@ st.progress(0.55)
 st.write("**QLD Branch**")
 st.progress(0.81)
 st.markdown('</div>', unsafe_allow_html=True)
-
-
 
 # === Flip Cards ===
 st.subheader("🔄 Flip Cards with Smart Tips")
@@ -298,7 +289,6 @@ st.markdown("""
 </div></div>
 """, unsafe_allow_html=True)
 
-
 # === Email Button ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("📤 Email This Dashboard Summary")
@@ -332,7 +322,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 st.markdown("""
 <div style="text-align: center; margin-top: 2rem; color: #6b7280;">
     <p>© 2025 Magic Dashboard. All rights reserved.</p>
-    <p>Made with ❤️ by Your Nagasai Petnikoti from 
-            IFA</p>
+    <p>Made with ❤️ by Your Nagasai Petnikoti from IFA</p>
 </div>
-""", unsafe_allow_html=True)    
+""", unsafe_allow_html=True)
