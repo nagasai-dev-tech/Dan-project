@@ -4,28 +4,36 @@ from datetime import datetime
 import requests
 from streamlit_lottie import st_lottie
 
-# === Styles ===
+# === CONFIGURE PAGE ===
+st.set_page_config(page_title="Magic Dashboard", layout="wide")
+
+# === GLOBAL STYLES ===
 st.markdown("""
 <style>
-/* GLOBAL CONTAINER */
+/* GLOBAL PAGE BACKGROUND */
+body {
+    background-color: #f3f4f6;
+}
+
+/* MAIN CONTAINER */
 .section {
     background-color: #ffffff;
     padding: 1.25rem 2rem;
     margin-bottom: 2rem;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    max-width: 100%;
 }
 
-/* HEADER STYLE */
+/* HEADINGS */
 h3, h2, h1 {
     font-family: 'Segoe UI', sans-serif;
     font-weight: 700;
-    text-align: left;
     color: #1e1e1e;
     margin-bottom: 1rem;
 }
 
-/* BUTTON ALIGNMENT */
+/* STREAMLIT PRIMARY BUTTONS */
 button[kind="primary"] {
     width: 100%;
     font-weight: bold;
@@ -35,7 +43,7 @@ button[kind="primary"] {
     margin-bottom: 1rem;
 }
 
-/* KPI COLUMN METRICS */
+/* KPI METRIC BOXES */
 [data-testid="stMetric"] {
     text-align: center;
     background-color: #f7fafd;
@@ -45,14 +53,15 @@ button[kind="primary"] {
     box-shadow: 0 0 8px rgba(0,0,0,0.03);
 }
 
-/* FLIP CARDS */
+/* RESPONSIVE FLIP CARDS */
 .flip-card {
   background-color: transparent;
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   height: 160px;
   perspective: 1000px;
   display: inline-block;
-  margin: 1rem 1rem;
+  margin: 1rem;
 }
 .flip-card-inner {
   position: relative;
@@ -87,6 +96,16 @@ button[kind="primary"] {
   transform: rotateY(180deg);
   padding: 1rem;
   font-size: 15px;
+}
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem;
+  }
+  .flip-card {
+    max-width: 100%;
+  }
 }
 </style>
 """, unsafe_allow_html=True)
