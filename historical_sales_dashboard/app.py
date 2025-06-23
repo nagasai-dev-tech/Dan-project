@@ -105,14 +105,7 @@ elif now.month == 6:
     st.balloons()
     st.markdown("🎉 Mid-Year Motivation! Let’s push to the next level!")
 
-# ==== Accordion Style Details ====
-with st.expander("🔍 Executive Overview"):
-    st.write("Here you can drop performance metrics, recent changes, or strategic notes.")
 
-# ==== Color Picker Theme ====
-st.subheader("🎨 Personalize Your Theme")
-color = st.color_picker("Pick a box color", "#007acc")
-st.markdown(f"<div style='background:{color};padding:1em;border-radius:12px;color:white;'>Custom Themed Box</div>", unsafe_allow_html=True)
 
 # ==== Ask-a-Question Bot ====
 st.subheader("🤖 Ask the Dashboard a Question")
@@ -125,11 +118,16 @@ if q:
     else:
         st.warning("🤔 I'm still learning. Try asking about 'sales' or 'growth'")
 
+
+
+
 # ==== Countdown to Launch ====
 st.subheader("⏳ Countdown to Q3 Launch")
 launch_date = datetime(2025, 9, 1)
 days_left = (launch_date - datetime.now()).days
 st.metric("🚀 Days to Launch", f"{days_left} days")
+
+
 
 # ==== Animated KPI Counter ====
 st.subheader("📈 Quarterly Revenue Count")
@@ -138,6 +136,9 @@ placeholder = st.empty()
 for i in range(0, target + 1, 800):
     placeholder.metric("Quarterly Revenue", f"${i:,}")
     time.sleep(0.03)
+
+
+
 
 # ==== Branch Progress ====
 st.subheader("📊 Progress by Branch")
@@ -165,16 +166,8 @@ st.markdown("""
 </div></div>
 """, unsafe_allow_html=True)
 
-# ==== Image Gallery ====
-st.subheader("🖼️ Logo / Brand Gallery")
-cols = st.columns(3)
-for i, img_url in enumerate([
-    "https://via.placeholder.com/150?text=Logo+1",
-    "https://via.placeholder.com/150?text=Logo+2",
-    "https://via.placeholder.com/150?text=Logo+3"
-]):
-    with cols[i]:
-        st.image(img_url, caption=f"Client {i+1}", use_column_width=True)
+
+
 
 # ==== Email Yourself Button ====
 st.subheader("📤 Email This Dashboard Summary")
@@ -184,6 +177,8 @@ st.markdown(f"""
     📧 <button style='background-color:#4CAF50;color:white;border:none;padding:0.6em 1.2em;border-radius:10px;cursor:pointer;'>Send Summary Email</button>
 </a>
 """, unsafe_allow_html=True)
+
+
 
 # ==== Feedback Form ====
 st.subheader("📝 Quick Feedback")
