@@ -10,12 +10,9 @@ st.set_page_config(page_title="Magic Dashboard", layout="wide")
 # === GLOBAL STYLES ===
 st.markdown("""
 <style>
-/* GLOBAL PAGE BACKGROUND */
-[data-testid="stAppViewContainer"] {
-    background-color: #f3f4f6;
+body {
+    background-color: #f9fafb;
 }
-
-/* MAIN CONTAINER */
 .section {
     background-color: #ffffff;
     padding: 1.25rem 2rem;
@@ -24,16 +21,12 @@ st.markdown("""
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     max-width: 100%;
 }
-
-/* HEADINGS */
 h3, h2, h1 {
     font-family: 'Segoe UI', sans-serif;
     font-weight: 700;
     color: #1e1e1e;
     margin-bottom: 1rem;
 }
-
-/* STREAMLIT PRIMARY BUTTONS */
 button[kind="primary"] {
     width: 100%;
     font-weight: bold;
@@ -42,8 +35,6 @@ button[kind="primary"] {
     border-radius: 8px;
     margin-bottom: 1rem;
 }
-
-/* KPI METRIC BOXES */
 [data-testid="stMetric"] {
     text-align: center;
     background-color: #f7fafd;
@@ -52,8 +43,6 @@ button[kind="primary"] {
     border: 1px solid #e2e8f0;
     box-shadow: 0 0 8px rgba(0,0,0,0.03);
 }
-
-/* RESPONSIVE FLIP CARDS */
 .flip-card {
   background-color: transparent;
   width: 100%;
@@ -97,8 +86,6 @@ button[kind="primary"] {
   padding: 1rem;
   font-size: 15px;
 }
-
-/* MEDIA QUERIES FOR RESPONSIVENESS */
 @media (max-width: 768px) {
   .section {
     padding: 1rem;
@@ -143,16 +130,18 @@ if lottie_icon:
     with st.container():
         st_lottie(lottie_icon, height=200, key="magic")
 
-# === Welcome Typewriter ===
+# === Welcome Animation ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
-with st.empty():
-    msg = "✨ Welcome to Your Enhanced Magic Dashboard ✨"
-    for i in range(len(msg) + 1):
-        st.markdown(f"<h3>{msg[:i]}</h3>", unsafe_allow_html=True)
-        time.sleep(0.02)
+welcome_msg = "✨ Welcome to Your Enhanced Magic Dashboard ✨"
+container = st.empty()
+for i in range(len(welcome_msg) + 1):
+    container.markdown(f"<h3>{welcome_msg[:i]}</h3>", unsafe_allow_html=True)
+    time.sleep(0.02)
+# Optional: remove white gap
+container.empty()
 st.markdown('</div>', unsafe_allow_html=True)
 
-# === Persona Logic ===
+# === Persona Section ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
 persona = st.selectbox("🧑 Who are you today?", ["Manager", "Sales Rep", "Customer", "Guest"])
 if persona == "Manager":
@@ -165,7 +154,7 @@ else:
     st.info("Enjoy the dashboard! Let’s explore what's possible 💡")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# === Holiday Celebration ===
+# === Celebration ===
 now = datetime.now()
 if now.month == 12:
     st.snow()
@@ -197,7 +186,7 @@ if cost:
     st.success(f"📊 Estimated ROI: {roi:.2f}%")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# === Live Conversion Simulator ===
+# === Conversion Impact Simulator ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("🔄 Conversion Impact Simulator")
 traffic = st.slider("Visitors", 1000, 100000, 25000, step=1000)
@@ -207,7 +196,7 @@ est_revenue = int((traffic * (conversion_rate / 100)) * avg_order_value)
 st.metric("🧾 Estimated Revenue", f"₹{est_revenue:,}")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# === Achievement Unlocking ===
+# === Achievement Trigger ===
 roi = ((rev - cost) / cost) * 100 if cost else 0
 if roi > 40:
     st.balloons()
@@ -226,7 +215,7 @@ if q:
         st.warning("🤔 I'm still learning. Try asking about 'sales' or 'growth'")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# === Countdown ===
+# === Countdown to Q3 ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("⏳ Countdown to Q3 Launch")
 launch_date = datetime(2025, 9, 1)
@@ -234,7 +223,7 @@ days_left = (launch_date - datetime.now()).days
 st.metric("🚀 Days to Launch", f"{days_left} days")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# === Revenue Counter ===
+# === Quarterly Revenue Counter ===
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("📈 Quarterly Revenue Count")
 target = 18000
@@ -262,27 +251,22 @@ st.markdown("""
 <div class="flip-card-front">💰 Revenue Tip</div>
 <div class="flip-card-back">Upselling increases revenue by 30% avg.</div>
 </div></div>
-
 <div class="flip-card"><div class="flip-card-inner">
 <div class="flip-card-front">📈 Growth Fact</div>
 <div class="flip-card-back">Data-driven firms grow 8x faster.</div>
 </div></div>
-
 <div class="flip-card"><div class="flip-card-inner">
 <div class="flip-card-front">🎯 Targeting</div>
 <div class="flip-card-back">Quarter goals = better team focus & forecast.</div>
 </div></div>
-
 <div class="flip-card"><div class="flip-card-inner">
 <div class="flip-card-front">🤝 Retention Hack</div>
 <div class="flip-card-back">Personalized emails improve retention by 18%.</div>
 </div></div>
-
 <div class="flip-card"><div class="flip-card-inner">
 <div class="flip-card-front">📅 Timing Insight</div>
 <div class="flip-card-back">Emails sent on Tuesdays get 20% more responses.</div>
 </div></div>
-
 <div class="flip-card"><div class="flip-card-inner">
 <div class="flip-card-front">📊 Conversion Trick</div>
 <div class="flip-card-back">Using urgency messaging can lift conversions by 12%.</div>
